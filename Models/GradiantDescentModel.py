@@ -11,7 +11,7 @@ from typing import Tuple, Optional
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
-class XGmodel(model):
+class GradianDescentModel(model):
     """Logistic Regression model with advanced features for xG prediction.
     
     This class extends the base model with gradient descent optimization,
@@ -21,7 +21,7 @@ class XGmodel(model):
     def __init__(self, lr: float = 0.01, num_iters: int = 100,
                  random_init_weight: bool = True, normalize_data: bool = True,
                  regularization: bool = False, Lambda: int = 1, reduce_dimension: bool = False,
-                 reduction_size: Optional[int] = None) -> None:
+                 reduction_size: Optional[int] = None, **kwargs) -> None:
         """Initialize the XGmodel with hyperparameters.
         
         Args:

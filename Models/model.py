@@ -4,15 +4,10 @@ class model(ABC):
 
 
     @abstractmethod
-    def predict(self):
+    def fit(self, X, y, **kwargs):
         pass
-
 
     @abstractmethod
-    def featureNormalization(self):
+    def predict(self, X):
         pass
 
-    
-    @abstractmethod
-    def addBias(self):
-        pass
