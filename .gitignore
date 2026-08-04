@@ -30,9 +30,6 @@ env/
 .mypy_cache/
 .ruff_cache/
 
-# Data (downloaded by pipeline)
-data/
-
 # OS
 .DS_Store
 Thumbs.db
