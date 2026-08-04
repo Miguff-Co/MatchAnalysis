@@ -1,0 +1,16 @@
+[project]
+name = "matchanalysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bs4>=0.0.2",
+    "numpy>=2.0.0",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.5",
+    "plotly>=5.24.0",
+    "requests>=2.34.2",
+    "scipy>=1.14.0",
+    "streamlit>=1.40.0",
+]

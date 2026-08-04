@@ -3,6 +3,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 import torch as T
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
+from tqdm import tqdm
 
 class DeepLearningModel(nn.Module):
     def __init__(self, lr, num_iters, *args, **kwargs):
@@ -35,7 +36,9 @@ class DeepLearningModel(nn.Module):
         ds = TensorDataset(X, y)
         dl = DataLoader(ds, batch_size=batch_size, shuffle=True)
 
-        for epoch in range(self.epochs):
+        pbar = tqdm(range(self.epochs), desc="Training XGmodel")
+
+        for epoch in pbar:
             total_loss = 0.0
             for xb, yb in dl:
                 logits = self(xb)
@@ -47,8 +50,7 @@ class DeepLearningModel(nn.Module):
 
                 total_loss += loss.item() * xb.size(0)
             avg_loss = total_loss / len(ds)
-            print(f"epoch {epoch+1}/{self.epochs} - loss: {avg_loss:.6f}")
-
+            pbar.set_description(f"epoch {epoch+1}/{self.epochs} - loss: {avg_loss:.6f}")
     @T.no_grad()
     def predict(self, X, threshold: float = 0.5):
         X = T.as_tensor(X, dtype=T.float32)
