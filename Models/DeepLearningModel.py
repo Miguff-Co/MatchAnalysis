@@ -27,7 +27,7 @@ class DeepLearningModel(nn.Module):
         return X
 
 
-    def fit(self, X, y, batch_size=32):
+    def fit(self, X, y, batch_size=32, progress_callback=None):
         self.train()
 
         X = T.as_tensor(X, dtype=T.float32)
